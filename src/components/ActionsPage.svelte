@@ -105,7 +105,7 @@
   }
 </style>
 
-<Page title="Actions" scrollTop={model.scrollTop} scrollLeft={model.scrollLeft}>
+<Page title="Действия" scrollTop={model.scrollTop} scrollLeft={model.scrollLeft}>
   <svelte:fragment slot="content">
     {#if hasRegularActions }
       <LayoutGrid>
@@ -121,11 +121,11 @@
           <LayoutGrid>
             <Cell>
               <Paper elevation={8} style="margin-bottom: 16px">
-                <Title>Congratulations!</Title>
+                <Title>Поздравления!</Title>
                 <Content>
-                  You have successfully configured your digital currency. Press the
+                  Успешно настроихте вашата дигитална валута. Натиснете бутона
                   <Icon style="vertical-align: middle" class="material-icons">settings_applications</Icon>
-                  button below to download your digital coin.
+                  по-долу, за да изтеглите вашата дигитална монета.
                 </Content>
               </Paper>
             </Cell>
@@ -133,30 +133,31 @@
         {:else}
           {#if !isANewbie || hasLoadedPaymentRequest}
             <p class="no-actions">
-              Press the
+              Натиснете бутона
               <Icon class="material-icons" style="vertical-align: middle">local_atm</Icon>
-              button below to load a payment request and issue new money in circulation.
+              по-долу, за да заредите покана за плащане и да пуснете нови пари в обращение.
             </p>
           {:else}
             <LayoutGrid>
               <Cell span={12}>
                 <Paper elevation={8} style="margin-bottom: 16px">
-                  <Title>How to issue money in circulation?</Title>
+                  <Title>Как се пускат пари в обращение?</Title>
                   <Content>
                     <p>
-                      Every time someone accepts a payment in your
-                      currency, new money is issued at that moment.
+                      Всеки път, когато някой приеме плащане във
+                      вашата валута, в този момент се пускат в
+                      обращение нови пари.
                     </p>
-                    <p class="to-make-payment">To make a payment:</p>
+                    <p class="to-make-payment">За да направите плащане:</p>
                     <ol>
-                      <li>The person you are paying creates a payment request.</li>
-                      <li>You load the payment request file, or scan the QR code they provide.</li>
-                      <li>You confirm the payment.</li>
+                      <li>Лицето, на което плащате, създава покана за плащане.</li>
+                      <li>Вие зареждате файла с поканата за плащане или сканирате предоставения QR код.</li>
+                      <li>Потвърждавате плащането.</li>
                     </ol>
                     <p>
-                      Press the
+                      Натиснете бутона
                       <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">local_atm</Icon>
-                      button below to load a payment request.
+                      по-долу, за да заредите покана за плащане.
                     </p>
                   </Content>
                 </Paper>
@@ -168,26 +169,26 @@
         <LayoutGrid>
           <Cell>
             <Paper elevation={8} style="margin-bottom: 16px">
-              <Title>Are you new to {appConfig.siteTitle}?</Title>
+              <Title>Нов ли сте в {appConfig.siteTitle}?</Title>
               <Content>
-                Each time you open this app, you will see the
-                "Actions" screen first. This screen shows things that
-                require your attention, such as actions that have been
-                started but not yet completed.
+                Всеки път, когато отваряте това приложение, първо ще
+                виждате екрана „Действия“. Този екран показва неща,
+                които изискват вашето внимание, като действия, които
+                са започнати, но все още не са завършени.
               </Content>
             </Paper>
           </Cell>
           <Cell>
             <Card>
               <CardContent>
-                A new digital currency has been created for you.
-                Before anyone can use it, you will need to provide
-                some basic information, such as the currency name,
-                interest rate, and a few other settings.
+                За вас бе създадена нова дигитална валута. Преди да
+                можете да я използвате, е необходимо да въведете
+                основна информация, като име на валутата, лихвен
+                процент и някои други настройки.
               </CardContent>
               <Actions fullBleed>
                 <Button on:click={editConfig}>
-                  <Label>Configure currency</Label>
+                  <Label>Управление на валута</Label>
                   <i class="material-icons" aria-hidden="true">arrow_forward</i>
                 </Button>
               </Actions>
@@ -201,7 +202,7 @@
         <Cell span={12}>
           <FormField>
             <Checkbox bind:checked={showForeignActions} />
-            <span slot="label">Show troubled payments initiated from other devices.</span>
+            <span slot="label">Покажи проблемни плащания, започнати от други устройства.</span>
           </FormField>
         </Cell>
         {#if showForeignActions }

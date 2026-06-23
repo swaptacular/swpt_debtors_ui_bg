@@ -1,11 +1,13 @@
 # Swaptacular "Currency Issuer UI" reference implementation
 
-This project implements a [Simple Issuing Web
+This project is a Bulgarian translation the [Simple Issuing Web
 API](https://swaptacular.github.io/public/docs/swpt_debtors/redoc.html)
-client for [Swaptacular]. The main deliverable is a [docker image],
-generated from the project's [Dockerfile](../master/Dockerfile). The
-generated image is a simple static web server, running on port 80,
-which serves a [Progressive Web App].
+client for [Swaptacular]. It is a trivial fork of [the english
+version](https://github.com/swaptacular/swpt_debtors_ui). The main
+deliverable is a [docker image], generated from the project's
+[Dockerfile](../master/Dockerfile). The generated image is a simple
+static web server, running on port 80, which serves a [Progressive Web
+App].
 
 To obtain permissions to act on behalf of the user, the Web App
 performs the [OAuth 2.0 Authorization Code Flow] with Proof Key for
@@ -81,7 +83,7 @@ installed.*
 Install the dependencies...
 
 ```bash
-cd swpt_debtors_ui
+cd swpt_debtors_ui_bg
 npm install
 ```
 

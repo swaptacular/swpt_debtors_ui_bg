@@ -30,7 +30,7 @@
 
   function confirmLogout() {
     app.startInteraction()
-    if (confirm('You will be logged out. To use the application again, you will have to log in.')) {
+    if (confirm('Ще излезете от профила си. За да използвате приложението, ще трябва да влезете отново.')) {
       logout()
     }
   }

@@ -48,14 +48,14 @@
 
 <div class="paper-container">
   <Paper style="margin: 36px 18px; max-width: 600px" elevation={8}>
-    <Title>Welcome to {appConfig.siteTitle}!</Title>
+    <Title>Добре дошли в {appConfig.siteTitle}!</Title>
     <Content>
-      {appConfig.siteTitle} makes issuing and holding digital
-      currencies possible for everyone. Currency issuers are also
-      called <em>debtors</em>, and currency
-      holders <em>creditors</em>. This app connects you to our
-      debtors’ agent server, which will create and manage your digital
-      currency for you.
+      {appConfig.siteTitle} позволява на всеки да създава и притежава
+      нови дигитални валути (дигитални ваучери). Създателите на валута
+      се наричат още <em>длъжници</em>, а нейните притежатели
+      — <em>кредитори</em>. Това приложение ви свързва с нашия сървър
+      за управление на валути, който ще създаде и управлява вашата
+      дигитална валута.
     </Content>
   </Paper>
 </div>
@@ -67,7 +67,7 @@
 <div class="floating">
   <div class="button-container">
     <Button on:click={() => login()} variant="raised">
-      <Label>Login</Label>
+      <Label>Вход</Label>
     </Button>
   </div>
 </div>

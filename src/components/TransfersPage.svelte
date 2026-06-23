@@ -45,7 +45,7 @@
 
   function getDate(t: TransferRecord): string {
     const initiatedAt = new Date(t.initiatedAt)
-    return initiatedAt.toLocaleString()
+    return initiatedAt.toLocaleString('bg-BG')
   }
 
   $: transfers = [...transfers, ...newBatch]
@@ -79,11 +79,11 @@
   }
 </style>
 
-<Page title="Payments" scrollTop={model.scrollTop} scrollLeft={model.scrollLeft}>
+<Page title="Плащания" scrollTop={model.scrollTop} scrollLeft={model.scrollLeft}>
   <svelte:fragment slot="content">
     {#if transfers.length === 0}
       <p class="no-payments">
-        You have not initiated any payments yet.
+        Все още не сте започнали никакви плащания.
       </p>
     {:else}
       <LayoutGrid>
@@ -101,7 +101,7 @@
                       {app.amountToString(transfer.amount)}
                       {unit}
                     </span>
-                    to {transfer.paymentInfo.payeeName || 'unknown payee'}
+                    на {transfer.paymentInfo.payeeName || 'неизвестен получател'}
                   </p>
                 </Content>
               </PrimaryAction>

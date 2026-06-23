@@ -49,8 +49,8 @@
   let invalidUnitRate: boolean | undefined
 
   const LOADING_ERROR = (
-    "Can not load information about the currency to which your " +
-    "currency is pegged. Please check your network connection."
+    "Не могат да се заредят данните за валутата, към която е фиксирана " +
+    "вашата валута. Моля, проверете интернет връзката си."
   )
 
   function toggleFlashlight() {
@@ -226,7 +226,7 @@
     aria-describedby="qrscan-content"
     on:MDCDialog:closed={unpeg}
     >
-    <Title id="qrscan-title">Scan another currency's digital coin (a QR code)</Title>
+    <Title id="qrscan-title">Сканирайте дигиталната монета на другата валута (QR код)</Title>
     <Content id="qrscan-content">
       <QrScanner bind:hasFlash bind:result={coinUrl} {flashlightOn} />
     </Content>
@@ -247,12 +247,12 @@
         <div>
           {#if DEFAULT_PEG_ABBR && DEFAULT_PEG_COIN }
             <Button on:click={() => coinUrl = DEFAULT_PEG_COIN}>
-              <Label>Use {DEFAULT_PEG_ABBR}</Label>
+              <Label>Ползвай {DEFAULT_PEG_ABBR}</Label>
             </Button>
           {/if}
           <!-- The type="button" is necessary to prevent form submitting.-->
           <Button type="button" default use={[InitialFocus]}>
-            <Label>Close</Label>
+            <Label>Затвори</Label>
           </Button>
         </div>
       </div>
@@ -263,7 +263,7 @@
 <FormField>
   <Switch color="primary" bind:checked={pegged} />
   <span slot="label">
-    Set a fixed exchange rate between your currency and a well-known currency.
+    Задайте фиксиран курс на обмен между вашата валута и известна валута.
   </span>
 </FormField>
 
@@ -288,8 +288,8 @@
         {/if}
       </svelte:fragment>
       <HelperText slot="helper" persistent>
-        The value of one unit of your digital currency{unit ? ` (1 ${unit})`: ''},
-        represented in the units of the "{debtorData.debtorName}" currency ({debtorData.unit}).
+        Стойността на една единица от вашата дигитална валута{unit ? ` (1 ${unit})`: ''},
+        изразена в единици от валутата "{debtorData.debtorName}" ({debtorData.unit}).
       </HelperText>
     </Textfield>
   {:else if coinUrl !== ''}
@@ -297,7 +297,7 @@
       {#if loadingError}
         <div style="margin: 0 10px; color: #888">{LOADING_ERROR}</div>
       {:else}
-        <div style="margin-right: 1em; color: #c4c4c4">Loading...</div>
+        <div style="margin-right: 1em; color: #c4c4c4">Зареждане...</div>
         <CircularProgress style="height: 32px; width: 32px;" indeterminate />
       {/if}
     </div>

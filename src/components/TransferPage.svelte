@@ -2,7 +2,7 @@
   import { onDestroy } from 'svelte'
   import { generatePr0Blob } from '../payment-requests'
   import type { TransferRecord } from '../operations'
-  import { getTooltip } from '../utils'
+  import { getTooltip } from '../messages'
   import type { AppState, TransferModel } from '../app-state'
   import Fab, { Icon } from '@smui/fab';
   import PaymentInfo from './PaymentInfo.svelte'
@@ -18,11 +18,11 @@
   function getTitle(t: TransferRecord): string {
     switch (true) {
     case t.result?.error !== undefined:
-        return 'Failed payment'
+        return 'Неуспешно плащане'
     case t.result !== undefined:
-      return 'Successful payment'
+      return 'Успешно плащане'
     default:
-      return 'Initiated payment'
+      return 'Започнато плащане'
     }
   }
 
@@ -61,7 +61,7 @@
   $: title = getTitle($transfer)
   $: tooltip = getTooltip($transfer)
   $: dataUrl = generateDataUrl($transfer)
-  $: downloadNameShort = `Issue ${unitAmount} ${unit.slice(0, 10)} to ${payeeName}`
+  $: downloadNameShort = `Пусни ${unitAmount} ${unit.slice(0, 10)} на ${payeeName}`
   $: downloadName = payeeReference ? `${downloadNameShort} - ${payeeReference}` : downloadNameShort
   $: fileName = downloadName.slice(0, 120).replace(/[<>:"/|?*\\]/g, ' ') + '.pr0'
 </script>
@@ -75,7 +75,7 @@
   }
 </style>
 
-<Page title="Payment">
+<Page title="Плащане">
   <svelte:fragment slot="content">
     <PaymentInfo
       {payeeName}
@@ -90,7 +90,7 @@
 
   <svelte:fragment slot="floating">
     <div class="fab-container">
-      <a class="download-link" href={dataUrl} download={fileName} bind:this={downloadLinkElement}>download</a>
+      <a class="download-link" href={dataUrl} download={fileName} bind:this={downloadLinkElement}>изтегли</a>
       <Fab on:click={() => downloadLinkElement.click()}>
         <Icon class="material-icons">download</Icon>
        </Fab>

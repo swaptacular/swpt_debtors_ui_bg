@@ -21,13 +21,13 @@
   function getButtonLabel(action: ActionRecordWithId): string {
     switch (action.actionType) {
     case 'CreateTransfer':
-      return 'Make payment'
+      return 'Направи плащане'
     case 'AbortTransfer':
-      return action.transfer.result ? "Show the failed payment" : "Show the delayed payment"
+      return action.transfer.result ? "Виж неуспешното плащане" : "Виж забавеното плащане"
     case 'UpdateConfig':
-      return 'Configure currency'
+      return 'Управление на валута'
     default:
-      return 'Unknown action type'
+      return 'Неизвестен вид действие'
     }
   }
 
@@ -40,18 +40,18 @@
       payeeName = action.paymentInfo.payeeName
       unitAmount = app.amountToString(action.creationRequest.amount)
       unit = debtorConfigData.debtorInfo?.unit ?? '\u00a4'
-      return `Send ${unitAmount} ${unit} to ${payeeName}.`
+      return `Плати ${unitAmount} ${unit} на ${payeeName}.`
     case 'AbortTransfer':
       const transfer = action.transfer
-      const title = transfer.result ? "Failed payment" : "Delayed payment"
+      const title = transfer.result ? "Неуспешно плащане" : "Забавено плащане"
       payeeName = transfer.paymentInfo.payeeName
       unitAmount = app.amountToString(transfer.amount)
       unit = debtorConfigData.debtorInfo?.unit ?? '\u00a4'
-      return `${title}: ${unitAmount} ${unit} to ${payeeName}.`
+      return `${title}: ${unitAmount} ${unit} на ${payeeName}.`
     case 'UpdateConfig':
-      return 'Provide information about your currency.'
+      return 'Въведете информация за вашата валута.'
     default:
-      return 'Unknown action type'
+      return 'Неизвестен вид действие'
     }
   }
 </script>

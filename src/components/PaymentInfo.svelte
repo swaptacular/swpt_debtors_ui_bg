@@ -31,7 +31,7 @@
   const unitAmountStep = app.amountToString(app.smallestDisplayableNumber)
 
   $: name = payeeName.slice(0, 40) ?? 'unknown payee'
-  $: downloadNameShort = forbidAmountChange ? `Issue ${unitAmount} ${unit.slice(0, 10)} to ${name}` : `Issue money to ${name}`
+  $: downloadNameShort = forbidAmountChange ? `Пусни ${unitAmount} ${unit.slice(0, 10)} на ${name}` : `Пусни пари на ${name}`
   $: downloadName = payeeReference ? `${downloadNameShort} - ${payeeReference}` : downloadNameShort
   $: fileName = downloadName.slice(0, 120).replace(/[<>:"/|?*\\]/g, ' ') + '.pr0'
 </script>
@@ -67,7 +67,7 @@
         {title}
         <Wrapper>
           <Chip chip="help" on:click={() => undefined}>
-            <Text tabindex="0">status</Text>
+            <Text tabindex="0">статус</Text>
           </Chip>
           <Tooltip>{tooltip}</Tooltip>
         </Wrapper>
@@ -78,13 +78,13 @@
         {:else if description.content}
           <pre>{description.content}</pre>
         {:else}
-          <span style="color: #c4c4c4">The payment request does not contain a description.</span>
+          <span style="color: #c4c4c4">Поканата за плащане не съдържа описание.</span>
         {/if}
         {#if dataUrl}
           <div class="save-button-container">
-            <a class="download-link" href={dataUrl} download={fileName} bind:this={downloadLinkElement}>download</a>
+            <a class="download-link" href={dataUrl} download={fileName} bind:this={downloadLinkElement}>изтегли</a>
             <Button type="button" color="secondary" on:click={() => downloadLinkElement?.click()}>
-              <Label>Save this payment request</Label>
+              <Label>Запази тази покана за плащане</Label>
             </Button>
           </div>
         {/if}
@@ -99,7 +99,7 @@
         variant="outlined"
         style="width: 100%"
         type="number"
-        label="Amount"
+        label="Сума"
         input$readonly
         input$step="any"
         bind:invalid={invalidUnitAmount}
@@ -107,7 +107,7 @@
         suffix={unit}
         >
         <HelperText slot="helper" persistent>
-          The amount that will be transferred to the payee.
+          Сумата, която ще бъде преведена на получателя.
         </HelperText>
       </Textfield>
     </Cell>
@@ -124,7 +124,7 @@
         withTrailingIcon={invalidUnitAmount}
         bind:value={unitAmount}
         bind:invalid={invalidUnitAmount}
-        label="Amount"
+        label="Сума"
         suffix={unit}
         >
         <svelte:fragment slot="trailingIcon">
@@ -133,7 +133,7 @@
           {/if}
         </svelte:fragment>
         <HelperText slot="helper" persistent>
-          The amount that will be transferred to the payee.
+          Сумата, която ще бъде преведена на получателя.
         </HelperText>
       </Textfield>
     </Cell>
@@ -143,14 +143,14 @@
     <Textfield
       variant="outlined"
       style="width: 100%"
-      label="Payee name"
+      label="Име на получателя"
       input$readonly
       input$spellcheck="false"
       bind:invalid={invalidPayeeName}
       value={payeeName}
       >
       <HelperText slot="helper" persistent>
-        The name of the recipient of the payment.
+        Името на получателя на плащането.
       </HelperText>
     </Textfield>
   </Cell>

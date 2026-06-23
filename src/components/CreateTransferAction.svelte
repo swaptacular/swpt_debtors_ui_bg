@@ -62,23 +62,39 @@
   function getInfoTooltip(status: CreateTransferActionStatus): string {
     switch (status) {
     case 'Draft':
-      return 'No attempts to transfer the amount have been made yet.'
+      return 'Все още не е направен опит за превеждане на сумата.'
     case 'Not sent':
-      return 'An attempt has been made to transfer the amount, '
-        + 'but it has been unsuccessful. '
-        + 'It is safe to retry the transfer, though.'
+      return 'Направен е опит за превеждане на сумата, но е неуспешен.'
+        + ' Безопасно е да опитате отново да извършите превода.'
     case 'Not confirmed':
-      return 'An attempt has been made to transfer the amount, '
-        + 'but it is unknown whether the amount has been successfully transferred or not. '
-        + 'It is safe to retry the transfer, though.'
+      return 'Направен е опит за превеждане на сумата, но не е'
+        + ' известно дали тя е била успешно преведена.'
+        + ' Безопасно е да опитате отново да извършите превода.'
     case 'Initiated':
-      return 'The payment has been initiated successfully.'
+      return 'Плащането е започнато.'
     case 'Failed':
       return msg.INVALID_PAYMENT_REQUEST
     case 'Timed out':
-      return 'An attempt has been made to transfer the amount, '
-        + 'but it is unknown whether the amount has been successfully transferred or not. '
-        + 'It is not safe to retry the transfer.'
+      return 'Направен е опит за превеждане на сумата, но не е известно'
+        + ' дали тя е била успешно преведена. Не е безопасно да'
+        + ' опитате отново да извършите превода.'
+    }
+  }
+
+  function getTitle(status: CreateTransferActionStatus): string {
+    switch (status) {
+    case 'Draft':
+      return 'Покана за плащане'
+    case 'Not sent':
+      return 'Неизпратено плащане'
+    case 'Not confirmed':
+      return 'Непотвърдено плащане'
+    case 'Initiated':
+      return 'Започнато плащане'
+    case 'Failed':
+      return 'Неуспешно плащане'
+    case 'Timed out':
+      return 'Плащане с изтекъл срок'
     }
   }
 
@@ -128,11 +144,11 @@
   $: description = action.paymentInfo.description
   $: payeeReference = action.paymentInfo.payeeReference
   $: status = getCreateTransferActionStatus(action)
-  $: executeButtonLabel = (status !== 'Initiated' && status !== 'Timed out' && status !== 'Failed') ? "Send" : 'Acknowledge'
+  $: executeButtonLabel = (status !== 'Initiated' && status !== 'Timed out' && status !== 'Failed') ? "Плати" : 'Разбрах'
   $: executeButtonIsHidden = (status === 'Failed')
   $: dismissButtonIsHidden = (status === 'Not confirmed' || status === 'Initiated' || status === 'Timed out')
   $: showDeadlineWarning = activeBanner && deadline !== undefined && status === "Draft"
-  $: title = status === 'Draft' ? 'Payment request' : `${status} payment`
+  $: title = getTitle(status)
   $: tooltip = getInfoTooltip(status)
   $: dataUrl = generateDataUrl(action)
   $: invalid = (
@@ -172,14 +188,14 @@
 </style>
 
 <div class="shaking-container">
-  <Page title="Make payment">
+  <Page title="Направи плащане">
     <div bind:this={shakingElement} slot="content">
       {#if showDeadlineWarning && deadline !== undefined}
         <Banner bind:open={activeBanner} mobileStacked centered>
           <BannerLabel slot="label">
-            The payment request specifies {deadline.toLocaleString()}
-            as deadline for the payment. When issuing money in
-            circulation, payment deadlines will be ignored.
+            Поканата за плащане посочва {deadline.toLocaleString('bg-BG')}
+            като краен срок за плащане. При пускане на пари в
+            обращение сроковете за плащане не се вземат предвид.
           </BannerLabel>
           <svelte:fragment slot="actions">
             <Button>OK</Button>
@@ -213,7 +229,7 @@
       {#if !dismissButtonIsHidden}
         <div class="fab-container">
           <Fab color={executeButtonIsHidden ? "primary" : "secondary"} on:click={dismiss} extended>
-            <Label>Dismiss</Label>
+            <Label>Откажи</Label>
           </Fab>
         </div>
       {/if}

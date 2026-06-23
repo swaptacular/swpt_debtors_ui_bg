@@ -42,7 +42,7 @@
           payeeReference: '',
           description: {
             contentFormat: '',
-            content: 'The given amount will be destroyed.',
+            content: 'Зададената сума ще бъде унищожена.',
           },
           amount: 0n,
           accountUri,
@@ -132,61 +132,62 @@
       <div class="qrcode-container">
         <QrGenerator value={link} bind:dataUrl />
       </div>
-      <a class="download-link" href={dataUrl} download={pngFileName} bind:this={downloadLinkElement}>download</a>
-      <a class="destroy-link" href={destroyUrl} download={pr0FileName} bind:this={destroyLinkElement}>destroy</a>
+      <a class="download-link" href={dataUrl} download={pngFileName} bind:this={downloadLinkElement}>изтегли</a>
+      <a class="destroy-link" href={destroyUrl} download={pr0FileName} bind:this={destroyLinkElement}>унищожи</a>
 
       <div class="text-container">
         <Paper elevation={8} style="margin: 0 16px 16px 16px; max-width: 600px">
-          <Title>Your digital coin</Title>
+          <Title>Вашата дигитална монета</Title>
           <Content>
             <p>
-              The image above (a standard QR code) uniquely identifies
-              your digital currency. Anyone who wants to use your
-              currency, including yourself, will simply need to scan
-              this QR code with their mobile device. Therefore, you
-              should:
+              Изображението по-горе (стандартен QR код) служи за
+              идентификация на вашата дигитална валута. Всеки, който
+              иска да използва вашата валута, включително и вие, ще
+              трябва да сканира този QR код с мобилното си устройство.
+              Затова:
             </p>
             <ol>
               <li>
                 <a href="download" on:click|preventDefault={() => downloadLinkElement.click()}>
-                  Download the image.
+                  Изтеглете изображението.
                 </a>
-                Then make sure it is publicly accessible and
-                unmistakably associated with you &mdash; for example,
-                by printing it on your business cards, displaying it
-                in your office, or publishing it on your website.
+                След това се уверете, че е публично достъпно и
+                недвусмислено свързано с вас — например, като го
+                отпечатате върху визитките си, поставите го в офиса си
+                или го публикувате на уебсайта си.
               </li>
               {#if REGISTER_ISSUER_URL}
                 <li>
                   <a href="{REGISTER_ISSUER_URL}" target="_blank">
-                    Add your currency
+                    Добавете вашия бизнес
                   </a>
-                  to the public registry, making it easy for others to
-                  find it and create an account with you.
+                  в публичния регистър, за да могат другите лесно да
+                  ви откриват, да купуват вашата валута и по-късно да
+                  я използват при плащане за вашите стоки и услуги.
                 </li>
               {/if}
               <li>
                 <a href="issue" on:click|preventDefault={showActions}>
-                  Issue money in circulation.
+                  Пуснете пари в обращение.
                 </a>
               </li>
             </ol>
             <p>
-              You currently have a total of
+              В момента имате общо
               <span class="amount">{`${totalIssuedUnits} ${unit}`}</span>
-              of your digital currency in circulation (this figure may lag behind).
+              от вашата дигитална валута в обращение (тази стойност може да изостава).
             </p>
             {#if destroyUrl}
               <p>
-                You can use
+                Можете да използвате
                 <a
                   href="destroy" on:click|preventDefault={() => destroyLinkElement.click()}
                   style="white-space: nowrap"
                   >
-                  this payment request
+                  тази покана за плащане
                 </a>
-                if you want to destroy money which is already in
-                circulation.
+                ако искате да унищожите пари, които вече са в
+                обращение.
               </p>
             {/if}
           </Content>
@@ -204,5 +205,5 @@
   </Page>
 {:else}
   <!-- Normally, this will never be shown. -->
-  <Page title="Configure currency" />
+  <Page title="Управление на валута" />
 {/if}

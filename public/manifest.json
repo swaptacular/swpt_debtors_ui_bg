@@ -1,7 +1,7 @@
 {
-  "short_name": "My Currency",
-  "name": "Currency Issuing Client",
-  "description": "Allows you to connect to a debtors agent and create and manage your own digital currency.",
+  "short_name": "Моята валута",
+  "name": "Клиент за емитиране на валута",
+  "description": "Позволява ви да се свържете със специализиран сървър, чрез който можете да създавате и управлявате собствена дигитална валута.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "./",
@@ -28,28 +28,28 @@
       "sizes": "1280x640",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Viewing Your Currency"
+      "label": "Преглед на моята валута"
     },
     {
       "src": "screenshots/wide2.png",
       "sizes": "1280x640",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Scanning a Payment Request"
+      "label": "Сканиране на покана за плащане"
     },
     {
       "src": "screenshots/narrow1.png",
       "sizes": "640x1280",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Viewing Your Currency"
+      "label": "Преглед на моята валута"
     },
     {
       "src": "screenshots/narrow2.png",
       "sizes": "640x1280",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Scanning a Payment Request"
+      "label": "Сканиране на покана за плащане"
     }
   ]
 }

@@ -95,12 +95,13 @@
     background-color: rgb(229,229,229);
     color: black;
     user-select: none;
+    text-align: center;
   }
 </style>
 
 {#if exiting}
   <div id="overlay">
-    <div id="text" in:fade="{{ duration: 300, delay: 200 }}">Tap again to exit</div>
+    <div id="text" in:fade="{{ duration: 300, delay: 200 }}">Докоснете отново, за да излезете</div>
   </div>
 {/if}
 
