@@ -88,7 +88,7 @@
     {/if}
   {:catch error}
     <Paper style="margin: 36px 18px" elevation={8}>
-      <Title>Application error</Title>
+      <Title>Програмна грешка</Title>
       <Content>
         {logError(error)}
       </Content>
@@ -96,22 +96,22 @@
   {/await}
 
   <Snackbar bind:this={authenticationErrorSnackbar} on:MDCSnackbar:closed={handleClosedAuthenticationErrorSnackbar}>
-    <Label>An authentication error has occured.</Label>
+    <Label>Трябва да влезете отново, за да извършвате действия в потребителския си профил.</Label>
     <Actions>
-      <Button>Login</Button>
+      <Button>Вход</Button>
       <IconButton class="material-icons" title="Dismiss">close</IconButton>
     </Actions>
   </Snackbar>
 
   <Snackbar bind:this={networkErrorSnackbar}>
-    <Label>A network error has occured.</Label>
+    <Label>Възникна грешка в мрежата.</Label>
     <Actions>
       <IconButton class="material-icons" title="Dismiss">close</IconButton>
     </Actions>
   </Snackbar>
 
   <Snackbar bind:this={httpErrorSnackbar}>
-    <Label>A server error has occured.</Label>
+    <Label>Възникна грешка на сървъра.</Label>
     <Actions>
       <IconButton class="material-icons" title="Dismiss">close</IconButton>
     </Actions>
