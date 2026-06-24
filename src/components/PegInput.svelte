@@ -226,7 +226,7 @@
     aria-describedby="qrscan-content"
     on:MDCDialog:closed={unpeg}
     >
-    <Title id="qrscan-title">Сканирайте дигиталната монета на другата валута (QR код)</Title>
+    <Title id="qrscan-title">Сканирайте дигиталната монета на добре известна валута (QR код)</Title>
     <Content id="qrscan-content">
       <QrScanner bind:hasFlash bind:result={coinUrl} {flashlightOn} />
     </Content>
@@ -247,7 +247,7 @@
         <div>
           {#if DEFAULT_PEG_ABBR && DEFAULT_PEG_COIN }
             <Button on:click={() => coinUrl = DEFAULT_PEG_COIN}>
-              <Label>Ползвай {DEFAULT_PEG_ABBR}</Label>
+              <Label>Избери {DEFAULT_PEG_ABBR}</Label>
             </Button>
           {/if}
           <!-- The type="button" is necessary to prevent form submitting.-->
@@ -263,7 +263,7 @@
 <FormField>
   <Switch color="primary" bind:checked={pegged} />
   <span slot="label">
-    Задайте фиксиран курс на обмен между вашата валута и известна валута.
+    Задайте фиксиран курс на обмен между вашата валута и добре известна валута.
   </span>
 </FormField>
 

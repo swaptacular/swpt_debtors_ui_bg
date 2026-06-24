@@ -24,14 +24,14 @@
 
   const homepagePattern = "^[^\\/?#:]+([\\/?#]\\S*)?$"
   const currencyNoPegAlert = (
-    'You did not set a fixed exchange rate between your currency and a well-known ' +
-    'currency. This is likely to confuse the users of your currency, and ' +
-    'will make automatic exchanges with your currency impossible.'
+    'Не сте задали фиксиран курс на обмен между вашата валута и добре известна валута. ' +
+    'Това вероятно ще обърка потребителите на вашата валута и ще направи ' +
+    'автоматичните обменни операции с вашата валута невъзможни.'
   )
   const currencyChangeAlert = (
-    'Changing the currency name, the currency abbreviation, the amount divisor, ' +
-    'or the number of displayed decimal places on a currency that is already in ' +
-    'use, is likely to provoke distrust, and may aggravate the users of your currency.'
+    'Промяната на името на валутата, съкращението на валутата, делителя на единиците ' +
+    'или броя на показваните десетични знаци при валута, която вече се използва, '+
+    'вероятно ще предизвика недоверие и може да разгневи потребителите на вашата валута.'
   )
 
   let actionManager = app.createActionManager(action, createUpdatedAction)
@@ -79,9 +79,9 @@
         setTimeout(() => { shakingElement.className = '' }, 1000)
       }
     } else if (!isDivisorAdequate) {
-      app.addAlert(new Alert('The specified amount divisor conflicts with the '
-        + 'specified number of decimal places. To solve this problem, you may '
-        + 'increase the amount divisor, or decrease the number of decimal places.'
+      app.addAlert(new Alert('Посоченият делител на единиците е в конфликт с '
+        + 'посочения брой десетични знаци. За да решите този проблем, можете да '
+        + 'увеличите делителя на единиците или да намалите броя на десетичните знаци.'
       ))
     } else if (mustConfigurePeg && !peg) {
       // When there are a default peg, make sure that the user has
@@ -194,7 +194,7 @@
 </style>
 
 <div class="shaking-container">
-  <Page title="Configure currency">
+  <Page title="Управление на валута">
     <div bind:this={shakingElement} slot="content">
       <form
         noValidate
@@ -212,7 +212,7 @@
               input$maxlength="40"
               bind:invalid={invalidCurrencyName}
               bind:value={debtorName}
-              label="Currency name"
+              label="Име на валутата"
               >
               <svelte:fragment slot="trailingIcon">
                 {#if invalidCurrencyName}
@@ -220,9 +220,9 @@
                 {/if}
               </svelte:fragment>
               <HelperText slot="helper" persistent>
-                Must be clear and unique, with little chance of
-                accidental duplication. If you are unsure, enter your
-                name, or the name of your business.
+                Трябва да е ясно и уникално, с малка вероятност за
+                случайно дублиране. Ако не сте сигурни, въведете
+                вашето име или името на вашия бизнес.
               </HelperText>
             </Textfield>
           </Cell>
@@ -236,7 +236,7 @@
               input$spellcheck="false"
               bind:invalid={invalidCurrencyAbbreviation}
               bind:value={unit}
-              label="Currency abbreviation"
+              label="Съкращение на валутата"
               >
               <svelte:fragment slot="trailingIcon">
                 {#if invalidCurrencyAbbreviation}
@@ -244,11 +244,12 @@
                 {/if}
               </svelte:fragment>
               <HelperText slot="helper" persistent>
-                This will appear right after the displayed amount
-                (e.g., "500.00 {exampleAbbr}"). If your currency has a
-                recognized name, enter its abbreviation here. If your
-                currency is a proxy for a well-known currency, use
-                that currency's abbreviation ("{exampleAbbr}" for example).
+                Това ще се показва веднага след изписаната сума
+                ("500.00 {exampleAbbr}" например). Ако вашата валута
+                има утвърдено име, въведете нейното съкращение тук.
+                Ако вашата валута представлява заместител на добре
+                известна валута, използвайте съкращението на тази
+                валута (например "{exampleAbbr}").
               </HelperText>
             </Textfield>
           </Cell>
@@ -262,7 +263,7 @@
               input$spellcheck="false"
               bind:invalid={invalidHomepage}
               bind:value={debtorHomepageUri}
-              label="Homepage"
+              label="Уебсайт"
               prefix="https://"
               >
               <svelte:fragment slot="trailingIcon">
@@ -271,8 +272,8 @@
                 {/if}
               </svelte:fragment>
               <HelperText slot="helper" persistent>
-                A secure web page where users of your currency can
-                learn more about it (optional).
+                Сигурна уеб страница, на която потребителите на вашата
+                валута могат да научат повече за нея (по избор).
               </HelperText>
             </Textfield>
           </Cell>
@@ -284,13 +285,13 @@
               input$maxlength="500"
               style="width: 100%"
               bind:value={summary}
-              label="Summary"
+              label="Кратко описание"
               >
               <CharacterCounter slot="internalCounter">0 / 500</CharacterCounter>
               <HelperText slot="helper" persistent>
-                A brief description of your digital currency
-                (optional). Currency holders will see this when they
-                create an account.
+                Кратко описание на вашата дигитална валута (по избор).
+                Потребителите ще го виждат, когато добавят вашата
+                валута към своя портфейл.
               </HelperText>
             </Textfield>
           </Cell>
@@ -307,7 +308,7 @@
               withTrailingIcon={invalidInterestRate}
               bind:value={interestRate}
               bind:invalid={invalidInterestRate}
-              label="Interest rate"
+              label="Лихвен процент"
               suffix="%"
               >
               <svelte:fragment slot="trailingIcon">
@@ -316,9 +317,10 @@
                 {/if}
               </svelte:fragment>
               <HelperText slot="helper" persistent>
-                The annual interest rate applied to currency holders'
-                accounts. It must be a number between -50 and 100. If
-                you are unsure, leave it at 0.
+                Годишният лихвен процент, който се начислява върху
+                средствата на потребителите на валутата. Той трябва да
+                бъде число между -50 и 100. Ако не сте сигурни,
+                оставете го на 0.
               </HelperText>
             </Textfield>
           </Cell>
@@ -335,7 +337,7 @@
               withTrailingIcon={invalidAmountDivisor}
               bind:value={amountDivisor}
               bind:invalid={invalidAmountDivisor}
-              label="Amount divisor"
+              label="Делител на единиците"
               >
               <svelte:fragment slot="trailingIcon">
                 {#if invalidAmountDivisor}
@@ -343,9 +345,9 @@
                 {/if}
               </svelte:fragment>
               <HelperText slot="helper" persistent>
-                To avoid rounding errors, amounts are stored as whole
-                numbers. Before being displayed, the whole numbers
-                will be divided by this value.
+                За да се избегнат грешки при закръгляване, сумите се
+                съхраняват като цели числа. Преди да бъдат показани,
+                тези цели числа се делят на това число.
               </HelperText>
             </Textfield>
           </Cell>
@@ -362,7 +364,7 @@
               withTrailingIcon={invalidDecimalPlaces}
               bind:value={decimalPlaces}
               bind:invalid={invalidDecimalPlaces}
-              label="Decimal places"
+              label="Брой десетични знаци"
               >
               <svelte:fragment slot="trailingIcon">
                 {#if invalidDecimalPlaces}
@@ -370,26 +372,26 @@
                 {/if}
               </svelte:fragment>
               <HelperText slot="helper" persistent>
-                The number of digits to display after the decimal
-                point. Must be a value between -20 and 20.
+                Броят на цифрите, които се показват след десетичната
+                запетая. Трябва да бъде число между -20 и 20.
               </HelperText>
             </Textfield>
           </Cell>
 
           <Cell spanDevices={{ desktop: 12, tablet: 8, phone: 4 }}>
             <div class="recommendation-container">
-              <strong>Important:</strong>
+              <strong>Важно:</strong>
               {#if mustConfigurePeg}
-                You must set a fixed exchange rate between your
-                currency and a well-known currency, such as
+                Трябва да зададете фиксиран курс на обмен между вашата
+                валута и добре известна валута, като например
                 {DEFAULT_PEG_ABBR}.
               {:else}
-                It is highly recommended to set a fixed exchange rate
-                between your currency and a well-known
+                Препоръчително е да зададете фиксиран курс на обмен
+                между вашата валута и добре известна
                 {#if DEFAULT_PEG_ABBR}
-                  currency, such as {DEFAULT_PEG_ABBR}.
+                  валута, като например {DEFAULT_PEG_ABBR}.
                 {:else}
-                  currency.
+                  валута.
                 {/if}
               {/if}
             </div>
@@ -408,13 +410,13 @@
     <svelte:fragment slot="floating">
       <div class="fab-container">
         <Fab on:click={dismiss} extended>
-          <Label>Dismiss</Label>
+          <Label>Отхвърли</Label>
         </Fab>
       </div>
       <div class="fab-container">
         <Fab color="primary" on:click={submit} extended>
           <Icon class="material-icons">storage</Icon>
-          <Label>Save</Label>
+          <Label>Запази</Label>
         </Fab>
       </div>
     </svelte:fragment>
