@@ -1,4 +1,3 @@
-import * as msg from "./messages";
 import type { TransferRecord } from './operations'
 
 export function stringToAmount(s: string | number, amountDivisor: number): bigint {
