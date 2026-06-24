@@ -279,7 +279,7 @@
       withTrailingIcon={invalidUnitRate}
       bind:value={unitRate}
       bind:invalid={invalidUnitRate}
-      label={`The value of one ${unit || "unit"}`}
+      label={`Стойността на 1 ${unit || "единица"}`}
       suffix={debtorData.unit}
       >
       <svelte:fragment slot="trailingIcon">

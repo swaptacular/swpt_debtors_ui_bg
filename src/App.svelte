@@ -99,21 +99,21 @@
     <Label>Трябва да влезете отново, за да извършвате действия в потребителския си профил.</Label>
     <Actions>
       <Button>Вход</Button>
-      <IconButton class="material-icons" title="Dismiss">close</IconButton>
+      <IconButton class="material-icons" title="Затвори">close</IconButton>
     </Actions>
   </Snackbar>
 
   <Snackbar bind:this={networkErrorSnackbar}>
     <Label>Възникна грешка в мрежата.</Label>
     <Actions>
-      <IconButton class="material-icons" title="Dismiss">close</IconButton>
+      <IconButton class="material-icons" title="Затвори">close</IconButton>
     </Actions>
   </Snackbar>
 
   <Snackbar bind:this={httpErrorSnackbar}>
     <Label>Възникна грешка на сървъра.</Label>
     <Actions>
-      <IconButton class="material-icons" title="Dismiss">close</IconButton>
+      <IconButton class="material-icons" title="Затвори">close</IconButton>
     </Actions>
   </Snackbar>
 </div>

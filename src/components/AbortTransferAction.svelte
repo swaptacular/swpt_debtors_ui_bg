@@ -39,7 +39,7 @@
   $: payeeReference = transfer.paymentInfo.payeeReference
   $: unitAmount = app.amountToString(transfer.amount)
   $: description = transfer.paymentInfo.description
-  $: title = transfer.result ? "Failed payment" : "Delayed payment"
+  $: title = transfer.result ? "Неуспешно плащане" : "Забавено плащане"
   $: tooltip = getTooltip(transfer)
 </script>
 
