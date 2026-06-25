@@ -158,6 +158,8 @@
                       Натиснете бутона
                       <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">local_atm</Icon>
                       по-долу, за да заредите покана за плащане.
+                      За да видите вашата дигитална монета, натиснете
+                      <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">settings_applications</Icon>.
                     </p>
                   </Content>
                 </Paper>
