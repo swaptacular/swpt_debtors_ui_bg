@@ -104,7 +104,7 @@
   </Snackbar>
 
   <Snackbar bind:this={networkErrorSnackbar}>
-    <Label>Възникна грешка в мрежата.</Label>
+    <Label>Възникна мрежова грешка.</Label>
     <Actions>
       <IconButton class="material-icons" title="Затвори">close</IconButton>
     </Actions>
