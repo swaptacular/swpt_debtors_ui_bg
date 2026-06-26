@@ -125,7 +125,7 @@
                 <Content>
                   Успешно настроихте вашата дигитална валута. Натиснете бутона
                   <Icon style="vertical-align: middle" class="material-icons">settings_applications</Icon>
-                  по-долу, за да изтеглите вашата дигитална монета.
+                  по-долу, за да видите вашата дигитална монета.
                 </Content>
               </Paper>
             </Cell>
