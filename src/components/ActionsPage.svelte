@@ -171,7 +171,7 @@
         <LayoutGrid>
           <Cell>
             <Paper elevation={8} style="margin-bottom: 16px">
-              <Title>Нов ли сте в {appConfig.siteTitle}?</Title>
+              <Title>Нови ли сте в {appConfig.siteTitle}?</Title>
               <Content>
                 Всеки път, когато отваряте това приложение, първо ще
                 виждате екрана „Действия“. Този екран показва неща,
