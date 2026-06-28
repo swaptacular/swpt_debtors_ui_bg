@@ -23,7 +23,7 @@
     case 'CreateTransfer':
       return 'Направи плащане'
     case 'AbortTransfer':
-      return action.transfer.result ? "Виж неуспешното плащане" : "Виж забавеното плащане"
+      return action.transfer.result ? "Покажи неуспешното плащане" : "Покажи забавеното плащане"
     case 'UpdateConfig':
       return 'Управление на валута'
     default:
