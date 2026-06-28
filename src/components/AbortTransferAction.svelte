@@ -92,7 +92,7 @@
     {#if transfer.result}
       <div class="fab-container">
         <Fab on:click={retry} extended>
-          <Label>Опитай отново</Label>
+          <Label>Опитай пак</Label>
         </Fab>
       </div>
       <div class="fab-container">
