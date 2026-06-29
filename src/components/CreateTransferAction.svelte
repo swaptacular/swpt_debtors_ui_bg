@@ -188,7 +188,7 @@
 </style>
 
 <div class="shaking-container">
-  <Page title="Направи плащане">
+  <Page title="Плати">
     <div bind:this={shakingElement} slot="content">
       {#if showDeadlineWarning && deadline !== undefined}
         <Banner bind:open={activeBanner} mobileStacked centered>

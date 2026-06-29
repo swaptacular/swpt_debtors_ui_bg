@@ -21,7 +21,7 @@
   function getButtonLabel(action: ActionRecordWithId): string {
     switch (action.actionType) {
     case 'CreateTransfer':
-      return 'Направи плащане'
+      return 'Плати'
     case 'AbortTransfer':
       return action.transfer.result ? "Покажи неуспешното плащане" : "Покажи забавеното плащане"
     case 'UpdateConfig':
