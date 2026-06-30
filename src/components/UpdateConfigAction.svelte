@@ -9,6 +9,7 @@
     DEFAULT_AMOUNT_DIVISOR,
     DEFAULT_DECIMAL_PLACES,
   } from '../app-state'
+  import { amountToLocaleString } from '../utils'
   import Fab, { Icon, Label } from '@smui/fab'
   import Textfield from '@smui/textfield'
   import TextfieldIcon from '@smui/textfield/icon'
@@ -245,11 +246,11 @@
               </svelte:fragment>
               <HelperText slot="helper" persistent>
                 Това ще се показва веднага след изписаната сума
-                („500.00 {exampleAbbr}“ например). Ако вашата валута
-                има утвърдено име, въведете нейното съкращение тук.
-                Ако вашата валута представлява заместител на добре
-                известна валута, използвайте съкращението на тази
-                валута (например „{exampleAbbr}“).
+                („{amountToLocaleString(50000n, 100, 2)} {exampleAbbr}“ например).
+                Ако вашата валута има утвърдено име, въведете нейното
+                съкращение тук. Ако вашата валута представлява
+                заместител на добре известна валута, използвайте
+                съкращението на тази валута (например „{exampleAbbr}“).
               </HelperText>
             </Textfield>
           </Cell>

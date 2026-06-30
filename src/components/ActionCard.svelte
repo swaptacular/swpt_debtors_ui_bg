@@ -38,14 +38,14 @@
     switch (action.actionType) {
     case 'CreateTransfer':
       payeeName = action.paymentInfo.payeeName
-      unitAmount = app.amountToString(action.creationRequest.amount)
+      unitAmount = app.amountToLocaleString(action.creationRequest.amount)
       unit = debtorConfigData.debtorInfo?.unit ?? '\u00a4'
       return `Плати ${unitAmount} ${unit} на ${payeeName}.`
     case 'AbortTransfer':
       const transfer = action.transfer
       const title = transfer.result ? "Неуспешно плащане" : "Забавено плащане"
       payeeName = transfer.paymentInfo.payeeName
-      unitAmount = app.amountToString(transfer.amount)
+      unitAmount = app.amountToLocaleString(transfer.amount)
       unit = debtorConfigData.debtorInfo?.unit ?? '\u00a4'
       return `${title}: ${unitAmount} ${unit} на ${payeeName}.`
     case 'UpdateConfig':
