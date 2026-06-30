@@ -289,7 +289,7 @@
       </svelte:fragment>
       <HelperText slot="helper" persistent>
         Стойността на една единица от вашата дигитална валута{unit ? ` (1 ${unit})`: ''},
-        изразена в единици от валутата "{debtorData.debtorName}" ({debtorData.unit}).
+        изразена в единици от валутата „{debtorData.debtorName}“ ({debtorData.unit}).
       </HelperText>
     </Textfield>
   {:else if coinUrl !== ''}
