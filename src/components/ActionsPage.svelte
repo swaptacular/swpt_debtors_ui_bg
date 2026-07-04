@@ -177,7 +177,7 @@
                         <a href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
                           да инсталирате портфейл
                         </a>
-                        за дигитални валути.
+                        за дигитални валути!
                       </p>
                     {/if}
                   </Content>
