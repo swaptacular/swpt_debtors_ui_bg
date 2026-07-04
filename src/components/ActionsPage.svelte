@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { DOWNLOADED_QR_COIN_KEY, IS_A_NEWBIE_KEY, HAS_LOADED_PAYMENT_REQUEST_KEY } from '../app-state'
+  import {
+    DOWNLOADED_QR_COIN_KEY,
+    IS_A_NEWBIE_KEY,
+    HAS_LOADED_PAYMENT_REQUEST_KEY,
+    INSTALL_WALLET_URL,
+  } from '../app-state'
   import type { AppState, ActionsModel } from '../app-state'
   import type { ActionRecordWithId } from '../operations'
   import Fab, { Icon } from '@smui/fab';
@@ -103,6 +108,10 @@
   li {
     margin: 0.25em 0;
   }
+  .to-install-wallet {
+    margin-top: 0.75em;
+    font-weight: bold;
+  }
 </style>
 
 <Page title="Действия" scrollTop={model.scrollTop} scrollLeft={model.scrollLeft}>
@@ -161,6 +170,16 @@
                       За да видите вашата дигитална монета, натиснете
                       <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">settings_applications</Icon>.
                     </p>
+                    {#if INSTALL_WALLET_URL}
+                      <p class="to-install-wallet">
+                        За да разполагате с избрана от вас сума във
+                        вашата валута, първо трябва
+                        <a href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
+                          да инсталирате портфейл
+                        </a>
+                        за дигитални валути.
+                      </p>
+                    {/if}
                   </Content>
                 </Paper>
               </Cell>

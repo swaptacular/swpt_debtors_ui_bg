@@ -158,7 +158,7 @@
               </li>
               {#if REGISTER_ISSUER_URL}
                 <li>
-                  <a href="{REGISTER_ISSUER_URL}" target="_blank">
+                  <a href="{REGISTER_ISSUER_URL}" target="_blank" rel="noreferrer">
                     Добавете своя бизнес
                   </a>
                   в нашия публичен регистър, за да могат клиентите
@@ -169,7 +169,7 @@
               {/if}
               {#if INSTALL_WALLET_URL}
                 <li>
-                  <a href="{INSTALL_WALLET_URL}" target="_blank">
+                  <a href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
                     Инсталирайте портфейл
                   </a>
                   за дигитални валути, който ще ви позволи да
