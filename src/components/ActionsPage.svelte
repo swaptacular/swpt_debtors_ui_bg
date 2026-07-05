@@ -150,35 +150,38 @@
             <LayoutGrid>
               <Cell span={12}>
                 <Paper elevation={8} style="margin-bottom: 16px">
-                  <Title>Как се пускат пари в обращение?</Title>
+                  <Title>Как да пусна пари в обращение?</Title>
                   <Content>
                     <p>
-                      Всеки път, когато някой приема плащане от вас
-                      във вашата валута, в този момент се пускат в
-                      обращение нови пари.
+                      За да разполагате с каквато сума пожелаете във
+                      вашата собствена валута, която ще можете
+                      автоматично да обменяте за валути издадени от
+                      други бизнеси, първо
+                      {#if INSTALL_WALLET_URL}
+                        <a href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
+                          трябва да инсталирате портфейл за дигитални валути.
+                        </a>
+                      {:else}
+                        трябва да инсталирате портфейл за дигитални валути.
+                      {/if}
                     </p>
-                    <p class="to-make-payment">За да направите плащане:</p>
+                    <p class="to-make-payment">За да заредите портфейла си:</p>
                     <ol>
-                      <li>Лицето, на което плащате, прави покана за плащане.</li>
-                      <li>Вие зареждате файла с поканата за плащане или сканирате предоставения QR код.</li>
+                      <li>
+                        В портфейла, откривате сметка в собствената
+                        си валута. За да видите QR кода на вашата
+                        валута, можете да използвате бутона
+                        <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">settings_applications</Icon>
+                        по-долу.
+                      </li>
+                      <li>От портфейла, правите покана за плащане към себе си.</li>
+                      <li>
+                        Натискате бутона
+                        <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">local_atm</Icon>
+                        по-долу и зареждате собствената си покана за плащане.
+                      </li>
                       <li>Потвърждавате плащането.</li>
                     </ol>
-                    <p>
-                      Натиснете бутона
-                      <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">local_atm</Icon>
-                      по-долу, за да заредите покана за плащане.
-                      За да видите вашата дигитална монета, натиснете
-                      <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">settings_applications</Icon>.
-                    </p>
-                    {#if INSTALL_WALLET_URL}
-                      <p class="to-install-wallet">
-                        За да разполагате с каквато сума пожелаете във
-                        вашата собствена валута, първо трябва
-                        <a href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
-                          да инсталирате портфейл за дигитални валути!
-                        </a>
-                      </p>
-                    {/if}
                   </Content>
                 </Paper>
               </Cell>
