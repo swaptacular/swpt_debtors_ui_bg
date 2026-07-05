@@ -61,7 +61,7 @@
   $: title = getTitle($transfer)
   $: tooltip = getTooltip($transfer)
   $: dataUrl = generateDataUrl($transfer)
-  $: downloadNameShort = `Пусни ${unitAmount} ${unit.slice(0, 10)} на ${payeeName}`
+  $: downloadNameShort = `Дай ${unitAmount} ${unit.slice(0, 10)} на ${payeeName}`
   $: downloadName = payeeReference ? `${downloadNameShort} - ${payeeReference}` : downloadNameShort
   $: fileName = downloadName.slice(0, 120).replace(/[<>:"/|?*\\]/g, ' ') + '.pr0'
 </script>

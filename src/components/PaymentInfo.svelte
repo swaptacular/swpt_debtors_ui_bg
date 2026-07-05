@@ -31,7 +31,7 @@
   const unitAmountStep = app.amountToString(app.smallestDisplayableNumber)
 
   $: name = payeeName.slice(0, 40) ?? 'неизвестен получател'
-  $: downloadNameShort = forbidAmountChange ? `Пусни ${unitAmount} ${unit.slice(0, 10)} на ${name}` : `Пусни пари на ${name}`
+  $: downloadNameShort = forbidAmountChange ? `Дай ${unitAmount} ${unit.slice(0, 10)} на ${name}` : `Дай пари на ${name}`
   $: downloadName = payeeReference ? `${downloadNameShort} - ${payeeReference}` : downloadNameShort
   $: fileName = downloadName.slice(0, 120).replace(/[<>:"/|?*\\]/g, ' ') + '.pr0'
 </script>

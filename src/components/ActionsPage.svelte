@@ -169,7 +169,7 @@
                     <ol>
                       <li>
                         В портфейла откривате сметка в собствената си
-                        валута. За да видите QR кода на вашата валута,
+                        валута. За да видите QR кода на валутата си,
                         можете да използвате бутона
                         <Icon class="material-icons" style="margin: 0 0.15em; vertical-align: middle">settings_applications</Icon>
                         по-долу.
