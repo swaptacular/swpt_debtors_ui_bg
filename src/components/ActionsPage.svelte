@@ -72,10 +72,6 @@
     showMakePaymentDialog = true
   }
 
-  function installWallet() {
-    window.open(INSTALL_WALLET_URL, '_blank');
-  }
-
   $: actions = model.actions
   $: [regularActions, foreignActions] = separateForeignActions($actions)
   $: hasRegularActions = regularActions.length > 0
@@ -114,7 +110,7 @@
   }
   .to-install-wallet {
     margin-top: 0.75em;
-    font-weight: bold;
+    color: #888;
   }
   strong {
     font-weight: bold;
@@ -159,17 +155,27 @@
                 <Paper elevation={8} style="margin-bottom: 16px">
                   <Title>Как да пусна валутата си в обращение?</Title>
                   <Content>
-                    <p>
-                      За да издадете и разполагате с каквато искате
-                      сума във вашата валута, първо
-                      {#if INSTALL_WALLET_URL}
-                        <a href="install-wallet" on:click|preventDefault={installWallet} >
+                    {#if INSTALL_WALLET_URL}
+                      <p>
+                        За да издадете и разполагате с каквато искате
+                        сума във вашата валута, първо
+                        <a style="color: #00e" href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
                           трябва да инсталирате портфейл за дигитални валути!
                         </a>
-                      {:else}
+                      </p>
+                      <p class="to-install-wallet">
+                        👉 Препоръчваме да използвате смартфона си за
+                        това. Портфейлът за дигитални валути изисква
+                        отделна регистрация, но можете да използвате
+                        същия имейл адрес.
+                      </p>
+                    {:else}
+                      <p>
+                        За да издадете и разполагате с каквато искате
+                        сума във вашата валута, първо
                         трябва да инсталирате портфейл за дигитални валути!
-                      {/if}
-                    </p>
+                      </p>
+                    {/if}
                     <p class="to-make-payment">За да заредите портфейла си:</p>
                     <ol>
                       <li>В портфейла открийте сметка в собствената си валута.</li>
