@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { AppState, ConfigDataModel } from '../app-state'
-  import { DOWNLOADED_QR_COIN_KEY, REGISTER_ISSUER_URL, INSTALL_WALLET_URL } from '../app-state'
+  import { DOWNLOADED_QR_COIN_KEY, REGISTER_ISSUER_URL } from '../app-state'
   import { generatePr0Blob, IvalidPaymentData } from '../payment-requests'
   import { onDestroy } from 'svelte'
   import Fab, { Icon } from '@smui/fab';
@@ -165,17 +165,6 @@
                   лесно да ви откриват, да купуват вашата валута и
                   впоследствие да я използват за плащане на вашите
                   стоки и услуги.
-                </li>
-              {/if}
-              {#if INSTALL_WALLET_URL}
-                <li>
-                  <a href="{INSTALL_WALLET_URL}" target="_blank" rel="noreferrer">
-                    Инсталирайте портфейл
-                  </a>
-                  за дигитални валути, който ще ви позволи да
-                  притежавате и използвате валути (включително
-                  собствената ви валута), както и да ги купувате и
-                  продавате.
                 </li>
               {/if}
               <li>
