@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { AppState } from '../app-state'
   import type { PaymentDescription } from '../payment-requests'
+  import { toSafeHttpUrl } from '../payment-requests'
   import { MAX_INT64 } from '../app-state'
   import { getContext } from 'svelte'
   import Paper, { Title, Content } from '@smui/paper'
@@ -34,6 +35,7 @@
   $: downloadNameShort = forbidAmountChange ? `Дай ${unitAmount} ${unit.slice(0, 10)} на ${name}` : `Дай пари на ${name}`
   $: downloadName = payeeReference ? `${downloadNameShort} - ${payeeReference}` : downloadNameShort
   $: fileName = downloadName.slice(0, 120).replace(/[<>:"/|?*\\]/g, ' ') + '.pr0'
+  $: descriptionHref = toSafeHttpUrl(description.content)
 </script>
 
 <style>
@@ -74,7 +76,7 @@
       </Title>
       <Content>
         {#if description.contentFormat === '.' || description.contentFormat === '-'}
-          <a href="{description.content}" target="_blank" rel="noreferrer">{description.content}</a>
+          <a href="{descriptionHref}" target="_blank" rel="noreferrer">{description.content}</a>
         {:else if description.content}
           <pre>{description.content}</pre>
         {:else}
