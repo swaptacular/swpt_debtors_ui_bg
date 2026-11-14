@@ -31,8 +31,8 @@
     'автоматичните обменни операции с вашата валута невъзможни.'
   )
   const currencyConfusingExchangeRate = (
-    'You specified a fixed exchange rate that may confuse the users of your ' +
-    'currency, and will make automatic exchanges with your currency very unlikely.'
+    'Посочили сте фиксиран обменен курс, който може да обърка потребителите на вашата ' +
+    'валута и вероятно ще направи автоматичните обмени с нея невъзможни.'
   )
   const currencyChangeAlert = (
     'Промяната на името на валутата, съкращението на валутата, делителя на единиците ' +
