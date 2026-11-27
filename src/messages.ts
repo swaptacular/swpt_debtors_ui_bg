@@ -18,8 +18,8 @@ export const PROBLEM_ON_THE_SERVER = "Възникна проблем със с�
 export const NETWORK_PROBLEM = "Възникна мрежов проблем. Моля, проверете интернет връзката си."
 export const UNEXPECTED_ERROR = "Опа! Нещо се обърка."
 export const INVALID_PAYMENT_REQUEST = (
-  "Невалидна покана за плащане. Уверете се, че сканирате правилния" +
-  " QR код за съответната покана за плащане."
+  "Невалидна покана за плащане. Уверете се, че зареждате покана" +
+  " за плащане в собствената си валута."
 )
 
 // This message will be shown when the user wants to view the details of a
